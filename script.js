@@ -138,8 +138,7 @@ const app = {
 }
 // Fetches user Data if exists
 function findUser(username) {
-  for (let i = 0; i < accounts.length; i++) {
-    const account = accounts[i];
+  for (const account of accounts) {
     if (account.username === username) {
       return account;
     };
@@ -311,4 +310,13 @@ btnLogOut.addEventListener('click', () => {
   app.hide()
   animate()
   labelWelcome.textContent = 'Log in to get started'
-})
+});
+
+function overallMovements(arr) {
+  let finalArr = [];
+  for (const acc of arr) {
+    // finalArr = [...finalArr, ...acc.movements]
+    finalArr = finalArr.concat(acc.movements)
+  }
+  return finalArr
+}
